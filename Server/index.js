@@ -5,7 +5,6 @@ const path = require("path");
 const cors = require("cors");
 const fs = require("fs");
 const app = express();
-const PORT = 4000;
 const dotenv = require('dotenv')
 
 
@@ -13,6 +12,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use("/uploads", express.static("uploads"));
 app.use(express.json());
 app.use(cors());
+app.use(express.static(path.join(__dirname + "/Client/build")));
 
 dotenv.config();
 
@@ -100,6 +100,8 @@ app.post("/resume/create", upload.single("headshotImage"), async (req, res) => {
 		data,
 	});
 });
+
+const PORT = process.env.PORT || 4000;
 
 app.listen(PORT, () => {
 	console.log(`Server listening on ${PORT}`);

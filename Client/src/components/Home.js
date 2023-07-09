@@ -42,7 +42,7 @@ const Home = ({ setResult }) => {
 		formData.append("currentTechnologies", currentTechnologies);
 		formData.append("workHistory", JSON.stringify(companyInfo));
 		axios
-			.post("http://localhost:4000/resume/create", formData, {})
+			.post("https://med-on-go.onrender.com/resume/create", formData, {})
 			.then((res) => {
 				if (res.data.message) {
 					setResult(res.data.data);
