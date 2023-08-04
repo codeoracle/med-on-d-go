@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Home from "./components/Home";
-import Resume from "./components/Resume";
+import AskAi from "./pages/AskAi/AskAi";
+import Result from "./pages/Result/Result";
 import Map from "./components/map/Map";
 import HomePage from "./pages/home/Home";
 import Booking from "./pages/booking/Booking"
@@ -16,8 +16,8 @@ const App = () => {
         <div>
             <BrowserRouter>
             <Routes>
-                    <Route path='/askai' element={<Home setResult={setResult} />} />
-                    <Route path='/symptom' element={<Resume result={result} />} />
+                    <Route path='/askai' element={<AskAi setResult={setResult} />} />
+                    <Route path='/symptom' element={<Result result={result} />} />
                     <Route path='/map' element={<Map />} />
                     <Route path='/' element={<HomePage />} />
                     <Route path='/appointment' element={<Booking />} />

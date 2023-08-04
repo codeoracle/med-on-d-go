@@ -1,18 +1,13 @@
 import React, { useRef } from "react";
-import ErrorPage from "./ErrorPage";
-import Navbar from "./navbar/Navbar";
+import ErrorPage from "../../components/ErrorPage/ErrorPage";
+import Navbar from "../../components/navbar/Navbar";
 import './result.scss'
 import { Link } from "react-router-dom";
-// import { useReactToPrint } from "react-to-print";
+
 
 const Resume = ({ result }) => {
 	const componentRef = useRef();
 
-	// const handlePrint = useReactToPrint({
-	// 	content: () => componentRef.current,
-	// 	documentTitle: `${result.fullName} Resume`,
-	// 	onAfterPrint: () => alert("Print Successful!"),
-	// });
 
 	if (JSON.stringify(result) === "{}") {
 		return <ErrorPage />;
@@ -25,26 +20,14 @@ const Resume = ({ result }) => {
 	return (
 		<>
 		<Navbar/>
-			{/* <button onClick={handlePrint}>Print Page</button> */}
 			<main className='container' ref={componentRef}>
 				
 				<header className='header'>
 					
 					<div>
 						<h1>Hi, {result.fullName}</h1>
-						{/* <p className='resumeTitle headerTitle'>
-							{result.currentPosition} ({result.currentTechnologies})
-						</p>
-						<p className='resumeTitle'>
-							{result.currentLength}year(s) work experience
-						</p> */}
 					</div>
 					<div className="btns">
-						{/* <img
-							src={result.image_url}
-							alt={result.fullName}
-							className='resumeImage'
-						/> */}
                 <Link to="/appointment" className='link'>
 						<button>Book Appointment</button>
 						</Link>
@@ -63,15 +46,6 @@ const Resume = ({ result }) => {
 							className='resumeBodyContent'
 						/>
 					</div>
-					{/* <div>
-						<h2 className='resumeBodyTitle'>WORK HISTORY</h2>
-						{result.workHistory.map((work) => (
-							<p className='resumeBodyContent' key={work.name}>
-								<span style={{ fontWeight: "bold" }}>{work.name}</span> -{" "}
-								{work.position}
-							</p>
-						))}
-					</div> */}
 					<div>
 						<h2 className='resumeBodyTitle'> Possible Cause</h2>
 						<p
